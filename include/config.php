@@ -1,5 +1,12 @@
 <?php
-//PDO ile mysql bağlantısı
+/**
+ *  Z-BLOG
+ *   by UMUT CAN 2021
+ * @author S4_C1N
+ * @copyright 2021
+ * @version Alfa
+ * @link https://github.com/C1N-S4
+ */
 
 try{
 

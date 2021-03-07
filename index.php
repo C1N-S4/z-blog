@@ -1,10 +1,19 @@
 <?php
+/**
+ *  Z-BLOG
+ *   by UMUT CAN 2021
+ * @author S4_C1N
+ * @copyright 2021
+ * @version Alfa
+ * @link https://github.com/C1N-S4
+ */
 include_once "include/config.php";
 require_once "include/settings.php";
 require_once "include/category.php";
+require_once "include/posts.php";
 $setting = settings();
 $cotegorys = category();
-
+$posts = posts();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -58,34 +67,35 @@ $cotegorys = category();
     <div class='cekom'>
        <div class='row'>
          <h1 class='cekom'>Cotegorys</h1><hr><br>
-    <?php  foreach ($cotegorys as $rows) {
-      echo '<p>'.$rows['categor_name'].'</p>';
+    <?php  foreach ($cotegorys as $cot) {
+      echo '<p>'.$cot['categor_name'].'</p>';
     } ?>
   </div>
   </div>
-    <div class="container">
-      <div class="row main-row">
-        <div class="col-lg-4 col-md-12 col-md-12">
-          <div class="blog-img">
-            <img src="style/img/test.jpg" class="img-fluid">
+  <?php foreach ($posts as $pos){
+
+  echo  "<div class='container'>
+      <div class='row main-row'>
+        <div class='col-lg-4 col-md-12 col-md-12'>
+          <div class='blog-img'>
+            <img src='".$pos['post_pic']."' class='img-fluid'>
       </div>
       </div>
-      <div class="col-lg-8 col-md-12 col-sm-12">
-        <div class="blog-title mb-3">
-          <h3>Test</h3>
+      <div class='col-lg-8 col-md-12 col-sm-12'>
+        <div class='blog-title mb-3'>
+          <h3>".$pos['post_title']."</h3>
         </div>
-        <div class="blog-date mb-2">
-          <span>Sunday</span>
-          <span>June 14 2008</span>
+        <div class='blog-date mb-2'>
+          <span>".$pos['post_data']."</span>
         </div>
-        <div class="blog-desc">
-        <p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки Sобразцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцамив шаблонах которых используется Lorem Ipsum.</p>
+        <div class='blog-desc'>
+        <p>".short($pos['post_desc'], 350)."</p>
       </div>
-      <div class="blog-read-more">
-      <button class="btn btn-outline-dark">...</button>
+      <div class='blog-read-more'>
+      <button class='btn btn-outline-dark'>...</button>
       </div>
     </div>
-  </div>
+    </div>"; } ?>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </html>
