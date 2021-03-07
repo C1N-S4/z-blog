@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+body{
+  font-family: 'Rubik', sans-serif;
+  background: #383739 !important;
+}
+h1,h3,h4,h5{
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+.navbar{
+  background-color:#383739;
+  color:#10F735;
+}
+a{
+  color:#10F735 !important;
+}
+.navbar-brand{
+  font-weight: 755 !important;
+}
+input{
+  background:#383739 !important;
+  color:#10F735 !important;
+}
+.btn-umut{
+background: #10F735 !important;
+color:#383739  !important;
+}
+.my-page {
+    position: absolute;
+    right: 20px;
+    width: 300px !important;
+    height: 200px !important;
+    border: 1px solid hsla(0,3.8%,69%,.56);
+    box-shadow: 7px 7px 0 0 rgb(168 234 179 / 66%);
+    top: 4rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 11px;
+    padding: .5rem .5rem 1rem 1rem;
+    background-image: linear-gradient(
+136deg
+, #383739 0%, rgb(120 117 116 / 72%) 100%);
+font-family: 'Rubik', sans-serif;
+font-weight: 700;
+color:#10F735 !important;
+
+}
+.main-row{
+  margin: 8%;
+  background-color: white;
+  box-shadow:0 0 10px 10px rgba(0,0,0,.05);
+  border-radius:0.5rem;
+
+}
+.blog-img  > img {
+  width: 70%;
+  height:70%;
+  transform: translateY(-30px);
+  object-fit: cover;
+  border-radius:0.5rem;
+  box-shadow:0 0 8px 3px rgba(0,0,0,.3);
+}
+.blog-date span {
+  color:#10F735;
+}
+.ul-cls{
+  justify-content: center;
+}
+.ul-cls li{
+  cursor: pointer;
+}
+.blog-title > h2 {
+  font-style: normal;
+  font-weight: 400;
+}
+.blog-desc > p {
+  font-style: normal;
+  line-height: 2;
+}
+img.logo_img {
+    width: 70px;
+    height: 40px;
+}
+.container {
+    position: absolute;
+    top: 25%;
+    left: 2px;
+}
+.cekom {
+    position: absolute;
+    color: #10F735;
+    right: 1%;
+    top: 29%;
+}
+h1.cekom {
+    position: unset;
+    font-size: 20px;
+}
+  h2 {
+    position: absolute;
+    font-family: 'Rubik', sans-serif;
+    color: #fee;
+    top: 35px;
+}
