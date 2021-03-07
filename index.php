@@ -59,7 +59,7 @@ $cotegorys = category();
        <div class='row'>
          <h1 class='cekom'>Cotegorys</h1><hr><br>
     <?php  foreach ($cotegorys as $rows) {
-      echo '<h2>'.$rows['categor_name'].'</h2><br>';
+      echo '<p>'.$rows['categor_name'].'</p>';
     } ?>
   </div>
   </div>
