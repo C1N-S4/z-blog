@@ -32,14 +32,14 @@ $posts = posts();
   <body>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="<?php echo $setting['z-blog_url']; ?>>"><img src="<?php echo $setting['z-blog_logo'];?>" class="logo_img"></a>
+        <a class="navbar-brand" href="<?php echo $setting['z-blog_url']; ?>"><img src="<?php echo $setting['z-blog_logo'];?>" class="logo_img"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
@@ -78,12 +78,12 @@ $posts = posts();
       <div class='row main-row'>
         <div class='col-lg-4 col-md-12 col-md-12'>
           <div class='blog-img'>
-            <img src='".$pos['post_pic']."' class='img-fluid'>
+          <a href='post.php?id=".$pos['post_id']."'><img src='".$pos['post_pic']."' class='img-fluid'></a>
       </div>
       </div>
       <div class='col-lg-8 col-md-12 col-sm-12'>
         <div class='blog-title mb-3'>
-          <h3>".$pos['post_title']."</h3>
+        <a href='post.php?id=".$pos['post_id']."'> <h3>".$pos['post_title']."</h3></a>
         </div>
         <div class='blog-date mb-2'>
           <span>".$pos['post_data']."</span>
@@ -95,7 +95,7 @@ $posts = posts();
       <button class='btn btn-outline-dark'>...</button>
       </div>
     </div>
-    </div>"; } ?>
+    </div><br>"; } ?>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </html>

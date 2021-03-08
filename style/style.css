@@ -103,3 +103,149 @@ h1.cekom {
     color: #fee;
     top: 35px;
 }
+/* Post Single */
+.post-single {
+  position: absolute;
+  width: 70%;
+  left: 2%;
+  background-color: #ffffff !important;
+  padding: 30px;
+  border-radius: 20px !important;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+  box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+
+.post-single-image {
+  margin-top: -60px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+}
+
+.post-single-image img {
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+          box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+
+.post-single-content .categorie {
+  margin-bottom: 20px;
+}
+
+.post-single-content h4 {
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.post-single-content h4 a:hover {
+  color: #f67280;
+}
+
+.post-single-content p {
+  margin-bottom: 30px;
+}
+
+.post-single-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.post-single-info li {
+  margin-bottom: 0;
+  font-size: 13px;
+  color: #506172;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.post-single-body {
+  margin-top: 30px;
+}
+
+.post-single-body h5 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.post-single-body .image {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.post-single-body .image img {
+  border-radius: 5px;
+}
+
+.post-single-body .image p {
+  color: #506172;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+.post-single-body .quote {
+  background-color: #F9F9FF;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.post-single-body .quote i {
+  font-size: 30px;
+  color: #f67280;
+}
+
+.post-single-body .quote p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #152035;
+  font-weight: 900;
+}
+
+.post-single-body .quote small {
+  color: #506172;
+  font-weight: 400;
+}
+
+.post-single-body .list {
+  margin-bottom: 15px;
+}
+
+.post-single-body .list li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.post-single-body .list li:before {
+  background-color: #506172;
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 12px;
+  width: 5px;
+  height: 5px;
+}
+.categorie {
+  background-color: #918687;
+  color: #ffffff;
+  padding: 2px 15px;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 20px;
+  font-weight: 800;
+  text-transform: capitalize;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}

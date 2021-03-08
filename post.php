@@ -7,12 +7,15 @@
   * @version Alfa
   * @link https://github.com/C1N-S4
   */
+  $get=$_GET['id'];
  include_once "include/config.php";
  require_once "include/settings.php";
  require_once "include/category.php";
  require_once "include/posts.php";
  $setting = settings();
  $cotegorys = category();
+ $postz = post_view();
+
  ?>
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
@@ -71,6 +74,28 @@
      } ?>
    </div>
    </div>
+   <div class="post-single">  <?php  	foreach($postz as $postz1) { ?>
+                           <div class="post-single-image">
+                               <img src=" <?php echo $postz1['post_pic']; ?>" alt="" height="300px" width="300px">
+                           </div>
+                           <div class="post-single-content">
+                               <a href="blog-grid.html" class="categorie">travel</a>
+                               <h4><?php echo  $postz1['post_title']; ?></h4>
+                               <div class="post-single-info">
+                                   <ul class="list-inline">
+                                       <li class="dot"></li>
+                                       <li><?php echo  $postz1['post_data']; ?></li>
+                                       <li class="dot"></li>
+                                       <li>3 comments</li>
+                                   </ul>
+                               </div>
+
+                           </div>
+
+                           <div class="post-single-body">
+                                <p>
+                                  <?php echo $postz1['post_desc']; ?>
+                               </p>  	</div> <?php }?>
 
    </body>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
