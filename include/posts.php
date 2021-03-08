@@ -23,11 +23,11 @@
 
     return $desc;
     }
+
     function post_view(){
       require "config.php";
       $get=$_GET['id'];
       $post_views = array();
-
       $post_view= $db->query("SELECT * FROM zblog_posts where post_id = $get");
       if($post_view->rowCount() > 0){
       while($post_view1 = $post_view->fetch(PDO::FETCH_OBJ)){

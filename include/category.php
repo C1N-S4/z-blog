@@ -15,4 +15,11 @@ $category_1 = $category->fetchAll(PDO::FETCH_ASSOC);
 return $category_1;
 }
 
+function cotegory_view(){
+  $get_cotegory= $_GET['id'];
+  $categoryw = $db->prepare("SELECT * FROM zblog_category");
+  $categoryw-> execute(array($get_cotegory));
+  $categoryw_1 = $categoryw->fetchAll(PDO::FETCH_ASSOC);
+  return $categoryw_1;
+}
  ?>

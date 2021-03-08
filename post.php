@@ -74,7 +74,7 @@
      } ?>
    </div>
    </div>
-   <div class="post-single">  <?php  	foreach($postz as $postz1) { ?>
+   <div class="post-single"><?php  	foreach($postz as $postz1) { ?>
                            <div class="post-single-image">
                                <img src=" <?php echo $postz1['post_pic']; ?>" alt="" height="300px" width="300px">
                            </div>
