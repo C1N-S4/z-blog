@@ -12,7 +12,7 @@ require_once "include/settings.php";
 require_once "include/category.php";
 $setting = settings();
 $cotegorys = category();
-$cotegorywz = cotegory_view();
+$cotegoryz = cotegory_view();
 
 ?>
 <!DOCTYPE html>
@@ -68,10 +68,11 @@ $cotegorywz = cotegory_view();
        <div class='row'>
          <h1 class='cekom'>Cotegorys</h1><hr><br>
     <?php  foreach ($cotegorys as $cot) {
-      echo '<p>'.$cot['categor_name'].'</p>';
-    } ?>
+      echo '<p>'.$cot['categor_name'].'</p>'; } ?>
+
   </div>
   </div>
+
   <section class="blog-grid">
           <div class="container-fluid">
               <div class="row">
@@ -85,10 +86,11 @@ $cotegorywz = cotegory_view();
                                           <img src="assets/img/blog/7.jpg" alt="">
                                       </a>
                                   </div>
+
                                   <div class="post-card-content">
-                                      <a href="blog-grid.html" class="categorie"><?php echo $categoryw_1['cotegory_name'];?></a>
+                                      <a href="blog-grid.html" class="categorie"><?php echo $cotegorz['categor_name'];?></a>
                                       <h5>
-                                          <a href="post-default.html">7 Dinner Recipes for a Date Night at Home</a>
+                                          <a href="post-default.html"><?php echo $cotegorz['post_title'];?></a>
                                       </h5>
                                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                            Odit quam atque ipsa laborum sunt distinctio...</p>
@@ -114,6 +116,8 @@ $cotegorywz = cotegory_view();
               </div>
           </div>
       </section>
+
+
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </html>

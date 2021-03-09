@@ -28,7 +28,7 @@
       require "config.php";
       $get=$_GET['id'];
       $post_views = array();
-      $post_view= $db->query("SELECT * FROM zblog_posts where post_id = $get");
+      $post_view= $db->query("SELECT * FROM zblog_posts INNER JOIN zblog_category	ON zblog_category.category_id = zblog_posts.post_cotegory where post_id = $get");
       if($post_view->rowCount() > 0){
       while($post_view1 = $post_view->fetch(PDO::FETCH_OBJ)){
      $post_views[] = array(
@@ -37,6 +37,8 @@
       'post_desc' => $post_view1-> post_desc,
       'post_pic' => $post_view1-> post_pic,
       'post_data' => $post_view1-> post_data,
+      'categor_name' => $post_view1-> categor_name,
+      'category_id' => $post_view1-> category_id,
     );
       }
       }

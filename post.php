@@ -79,7 +79,7 @@
                                <img src=" <?php echo $postz1['post_pic']; ?>" alt="" height="300px" width="300px">
                            </div>
                            <div class="post-single-content">
-                               <a href="blog-grid.html" class="categorie">travel</a>
+                               <a href="cotegoryz.php?id=<?php echo $postz1['category_id']; ?>" class="categorie"><?php echo $postz1['categor_name']; ?></a>
                                <h4><?php echo  $postz1['post_title']; ?></h4>
                                <div class="post-single-info">
                                    <ul class="list-inline">
