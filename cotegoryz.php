@@ -7,12 +7,14 @@
  * @version Alfa
  * @link https://github.com/C1N-S4
  */
+
 include_once "include/config.php";
 require_once "include/settings.php";
 require_once "include/category.php";
+require_once "include/posts.php";
 $setting = settings();
 $cotegorys = category();
-$cotegoryz = cotegory_view();
+$cat = cotegory_view();
 
 ?>
 <!DOCTYPE html>
@@ -68,11 +70,11 @@ $cotegoryz = cotegory_view();
        <div class='row'>
          <h1 class='cekom'>Cotegorys</h1><hr><br>
     <?php  foreach ($cotegorys as $cot) {
-      echo '<p>'.$cot['categor_name'].'</p>'; } ?>
-
+      echo '<p>'.$cot['categor_name'].'</p>';
+    } ?>
   </div>
   </div>
-
+<?php foreach($cat  as $row){ ?>
   <section class="blog-grid">
           <div class="container-fluid">
               <div class="row">
@@ -88,12 +90,11 @@ $cotegoryz = cotegory_view();
                                   </div>
 
                                   <div class="post-card-content">
-                                      <a href="blog-grid.html" class="categorie"><?php echo $cotegorz['categor_name'];?></a>
+                                      <a href="blog-grid.html" class="categorie"><?php echo $row['cotegor_name']; ?></a>
                                       <h5>
-                                          <a href="post-default.html"><?php echo $cotegorz['post_title'];?></a>
+                                          <a href="post-default.html"><?php echo $row['post_title']; ?></a>
                                       </h5>
-                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                           Odit quam atque ipsa laborum sunt distinctio...</p>
+                                      <p><?php echo short($row['post_desc'] , 500); ?></p>
                                       <div class="post-card-info">
                                           <ul class="list-inline">
                                               <li>
@@ -102,10 +103,10 @@ $cotegoryz = cotegory_view();
                                                   </a>
                                               </li>
                                               <li>
-                                                  <a href="author.html">David Smith</a>
+                                                  <a href="#">Admin</a>
                                               </li>
                                               <li class="dot"></li>
-                                              <li>January 15, 2021</li>
+                                              <li><?php echo $row['post_data']; ?></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -116,7 +117,7 @@ $cotegoryz = cotegory_view();
               </div>
           </div>
       </section>
-
+<?php }?>
 
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

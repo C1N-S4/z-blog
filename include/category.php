@@ -16,24 +16,14 @@ return $category_1;
 }
 
 function cotegory_view(){
-  require "config.php";
-  $categoryw_1 = array();
-  $get_cotegory= $_GET['id'];
-  $categoryw = $db->prepare("SELECT cat.*, post.post_cotegory, post.post_pic, post.post_data, post.post_desc, post.post_title, post.post_id as post_id FROM zblog_cotegory as cat INNER JOIN zblog_posts as post ON post.post_id = cat.category_id WHERE cat.cotegory_id= ".$get_cotegory." ");
-//  $categoryw = $db->prepare("SELECT * FROM zblog_cotegory INNER JOIN zblog_posts  ON zblog_category.category_id = zblog_posts.post_cotegory Where cotegory_id= $get_cotegory");
-  $categoryw-> execute(array($get_cotegory));
+require "config.php";
+$get_cotegory_id = $_GET['id'];
+$cotegory_view = $db->prepare("SELECT * FROM zblog_posts INNER JOIN zblog_category	ON zblog_category.category_id = zblog_posts.post_cotegory  WHERE category_id = $get_cotegory_id ORDER BY post_id DESC");
+$cotegory_view -> execute(array($get_cotegory_id));
+$cotegory_view1 = $cotegory_view-> fetchALL(PDO::FETCH_ASSOC);
 
-  while($pos = $categoryw->fetch(PDO::FETCH_OBJ)){
-  $categoryw_1[] = array(
-  'post_id' => $pos-> post_id,
-  'post_title' => $pos-> post_title,
-  'post_desc' => $pos-> post_desc,
-  'post_pic' => $pos-> post_pic,
-  'post_data' => $pos-> post_data,
-  'categor_name' => $pos-> categor_name,
-  'category_id' => $pos-> category_id,
-);
+return $cotegory_view1 ;
 }
-  return $categoryw_1;
-}
+
+
  ?>
