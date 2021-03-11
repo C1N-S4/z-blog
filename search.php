@@ -11,9 +11,17 @@ include_once "include/config.php";
 require_once "include/settings.php";
 require_once "include/category.php";
 require_once "include/posts.php";
+
 $setting = settings();
 $cotegorys = category();
-$posts = posts();
+$f = "Results....";
+
+$post_get = $_POST['textz'];
+
+$searchz = $db->prepare("SELECT * FROM zblog_posts INNER JOIN zblog_category ON zblog_category.category_id = zblog_posts.post_cotegory WHERE post_title regexp $post_get");
+$searchz-> execute(array('%'.$post_get.'%'));
+$searchw = $searchz-> fetchALL(PDO::FETCH_ASSOC);
+$noresult = $searchz-> rowCount();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -57,23 +65,22 @@ $posts = posts();
             </li>
           </ul>
           <form class="d-flex" action="search.php" method="POST">
-            <input class="form-control me-2"  name= "textz" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" name="textz" type="search" placeholder="Search" aria-label="Search">
             <button class="btn-umut btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
-    <br><br><br>
+    <br><br><?php echo "<p>".$f."</p>"; ?><br>
     <div class='cekom'>
        <div class='row'>
          <h1 class='cekom'>Cotegorys</h1><hr><br>
     <?php  foreach ($cotegorys as $cot) {
       echo '<p>'.$cot['categor_name'].'</p>';
     } ?>
-  </div>
-  </div>
-  <?php foreach ($posts as $pos){
+  </div><br>
 
+<?php  if($noresult){
   echo  "<div class='container'>
       <div class='row main-row'>
         <div class='col-lg-4 col-md-12 col-md-12'>
@@ -95,7 +102,11 @@ $posts = posts();
       <button class='btn btn-outline-dark'>...</button>
       </div>
     </div>
-    </div><br>"; } ?>
+    </div><br>";
+  }else{
+    echo "<H1>NO RESULT ....</H1>";
+  } ?>
+
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </html>
