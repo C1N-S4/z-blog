@@ -11,17 +11,12 @@ include_once "include/config.php";
 require_once "include/settings.php";
 require_once "include/category.php";
 require_once "include/posts.php";
+require_once "include/search.php";
 
 $setting = settings();
 $cotegorys = category();
-$f = "Results....";
+$f = search();
 
-$post_get = $_POST['textz'];
-
-$searchz = $db->prepare("SELECT * FROM zblog_posts INNER JOIN zblog_category ON zblog_category.category_id = zblog_posts.post_cotegory WHERE post_title regexp $post_get");
-$searchz-> execute(array('%'.$post_get.'%'));
-$searchw = $searchz-> fetchALL(PDO::FETCH_ASSOC);
-$noresult = $searchz-> rowCount();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -64,14 +59,45 @@ $noresult = $searchz-> rowCount();
               </ul>
             </li>
           </ul>
-          <form class="d-flex" action="search.php" method="POST">
-            <input class="form-control me-2" name="textz" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn-umut btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex" action="" method="POST">
+            <input class="form-control me-2" name="searchtext" type="text" placeholder="Search">
+            <input class="btn-umut btn btn-outline-success" type="submit" value="Search">
           </form>
         </div>
       </div>
     </nav>
-    <br><br><?php echo "<p>".$f."</p>"; ?><br>
+    <br><br><?php echo "<p></p>"; ?><br>
+
+    <?php  if (count($f) == 1) {
+      foreach ($f as $pos){
+     echo "<div class='container'>
+          <div class='row main-row'>
+            <div class='col-lg-4 col-md-12 col-md-12'>
+              <div class='blog-img'>
+              <a href='post.php?id=".$pos['post_id']."'><img src='".$pos['post_pic']."' class='img-fluid'></a>
+          </div>
+          </div>
+          <div class='col-lg-8 col-md-12 col-sm-12'>
+            <div class='blog-title mb-3'>
+            <a href='post.php?id=".$pos['post_id']."'> <h3>".$pos['post_title']."</h3></a>
+            </div>
+            <div class='blog-date mb-2'>
+              <span>".$pos['post_data']."</span>
+            </div>
+            <div class='blog-desc'>
+            <p>".short($pos['post_desc'], 350)."</p>
+          </div>
+          <div class='blog-read-more'>
+          <button class='btn btn-outline-dark'>...</button>
+          </div>
+        </div>
+      </div><br>"; ?>
+    <?php }
+     }else{ 
+
+        echo "No Result !";
+      }?>
+
     <div class='cekom'>
        <div class='row'>
          <h1 class='cekom'>Cotegorys</h1><hr><br>
@@ -80,32 +106,6 @@ $noresult = $searchz-> rowCount();
     } ?>
   </div><br>
 
-<?php  if($noresult){
-  echo  "<div class='container'>
-      <div class='row main-row'>
-        <div class='col-lg-4 col-md-12 col-md-12'>
-          <div class='blog-img'>
-          <a href='post.php?id=".$pos['post_id']."'><img src='".$pos['post_pic']."' class='img-fluid'></a>
-      </div>
-      </div>
-      <div class='col-lg-8 col-md-12 col-sm-12'>
-        <div class='blog-title mb-3'>
-        <a href='post.php?id=".$pos['post_id']."'> <h3>".$pos['post_title']."</h3></a>
-        </div>
-        <div class='blog-date mb-2'>
-          <span>".$pos['post_data']."</span>
-        </div>
-        <div class='blog-desc'>
-        <p>".short($pos['post_desc'], 350)."</p>
-      </div>
-      <div class='blog-read-more'>
-      <button class='btn btn-outline-dark'>...</button>
-      </div>
-    </div>
-    </div><br>";
-  }else{
-    echo "<H1>NO RESULT ....</H1>";
-  } ?>
 
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
