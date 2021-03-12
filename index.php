@@ -57,7 +57,7 @@ $posts = posts();
             </li>
           </ul>
           <form class="d-flex" action="search.php" method="POST">
-            <input class="form-control me-2"  name= "textz" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2"  name="searchtext" type="search" placeholder="Search" aria-label="Search">
             <button class="btn-umut btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
