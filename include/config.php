@@ -14,7 +14,7 @@ try{
 
 }catch(PDOException $e){
 
-  echo getmassage();
+  echo $e->getmassage();
 }
 
 
