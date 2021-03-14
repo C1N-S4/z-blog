@@ -25,4 +25,17 @@ function about(){
   $about1 = $about->fetch(PDO::FETCH_ASSOC);
   return $about1 ;
 }
+
+function pages(){
+  require 'config.php';
+  $page_id= intval($_GET['page_id']);
+  if(!$page_id){
+    $page_id=1;
+  }
+ $pagesz = $db->prepare("SELECT * FROM zblog_posts");
+ $pagesz-> execute(array());
+ $pagesw = $pagesz->Count();
+ echo $pagesw;
+}
+
  ?>
