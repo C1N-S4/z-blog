@@ -16,6 +16,7 @@ require_once "include/search.php";
 $setting = settings();
 $cotegorys = category();
 $f = search();
+$ab = about();
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ $f = search();
               <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.php">About</a>
+              <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,37 +67,17 @@ $f = search();
         </div>
       </div>
     </nav>
-    <br><br><?php echo "<p></p>"; ?><br>
+    <br><br>
 
-    <?php  if (count($f) == 1) {
-      foreach ($f as $pos){
-     echo "<div class='container'>
-          <div class='row main-row'>
-            <div class='col-lg-4 col-md-12 col-md-12'>
-              <div class='blog-img'>
-              <a href='post.php?id=".$pos['post_id']."'><img src='".$pos['post_pic']."' class='img-fluid'></a>
-          </div>
-          </div>
-          <div class='col-lg-8 col-md-12 col-sm-12'>
-            <div class='blog-title mb-3'>
-            <a href='post.php?id=".$pos['post_id']."'> <h3>".$pos['post_title']."</h3></a>
-            </div>
-            <div class='blog-date mb-2'>
-              <span>".$pos['post_data']."</span>
-            </div>
-            <div class='blog-desc'>
-            <p>".short($pos['post_desc'], 350)."</p>
-          </div>
-          <div class='blog-read-more'>
-          <button class='btn btn-outline-dark'>...</button>
-          </div>
-        </div>
-      </div><br>"; ?>
-    <?php }
-     }else{
-
-        echo "No Result !";
-      }?>
+    <div class="about-us">
+                        <div class="about-us-image">
+                            <img src="assets/img/about-us.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h6><?php echo $ab['about_title']; ?></h6>
+                          <p><?php echo $ab['about_desc']; ?></p>
+                        </div>
+                    </div>
 
     <div class='cekom'>
        <div class='row'>

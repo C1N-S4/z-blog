@@ -18,5 +18,11 @@ function settings(){
   return $settings_1;
 
 }
-
+function about(){
+  require 'config.php';
+  $about = $db->prepare("SELECT * FROM zblog_about");
+  $about->execute();
+  $about1 = $about->fetch(PDO::FETCH_ASSOC);
+  return $about1 ;
+}
  ?>
