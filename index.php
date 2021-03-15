@@ -1,3 +1,9 @@
+<?php
+include_once "include/config.php";
+include_once "include/functions/post_func.php";
+
+$postz = post();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,14 +37,16 @@
             <div class="row">
                 <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
                     <h3 class="font-monospace text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;">Least Posts</h3>
+                   <?php foreach($postz as $r1){ ?>
                     <div class="bg-danger border rounded border-light shadow">
                         <div class="card-long" style="background: rgb(41,40,40);"><img class="card-long-img">
-                            <div class="card-body"><a class="link-secondary" href="#" style="font-family: 'Antic Slab', serif;">Link</a>
-                                <h5 class="text-end text-info">Data</h5>
-                                <p style="color: rgb(255,255,255);"><br><strong>Lorem Ipsum</strong>&nbsp;- это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и<br><br></p>
+                            <div class="card-body"><a class="link-secondary" href="post.php?id=<?php echo $r1['post_id']; ?>" style="font-family: 'Antic Slab', serif;"><?php echo $r1['post_title']; ?></a>
+                                <h5 class="text-end text-info"><?php echo $r1['post_data']; ?></h5>
+                                <p style="color: rgb(255,255,255);"><br><strong></strong>&nbsp;<?php echo $r1['post_desc']; ?><br><br></p>
                             </div>
                         </div>
                     </div>
+                    <?php }?>
                 </div>
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
                     <aside></aside>

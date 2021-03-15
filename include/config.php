@@ -9,7 +9,7 @@
  */
 
 try{
-  $db= new PDO("mysql:host=localhost;dbname=z-blog;charset=utf8",'root','');
+  $db = new PDO("mysql:host=localhost;dbname=z-blog;charset=utf8",'root','');
 }catch(Pdoexception $e){
   echo $e->getMessage();
 }
