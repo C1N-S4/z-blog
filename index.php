@@ -42,7 +42,7 @@ $postz = post();
                         <div class="card-long" style="background: rgb(41,40,40);"><img class="card-long-img">
                             <div class="card-body"><a class="link-secondary" href="post.php?id=<?php echo $r1['post_id']; ?>" style="font-family: 'Antic Slab', serif;"><?php echo $r1['post_title']; ?></a>
                                 <h5 class="text-end text-info"><?php echo $r1['post_data']; ?></h5>
-                                <p style="color: rgb(255,255,255);"><br><strong></strong>&nbsp;<?php echo $r1['post_desc']; ?><br><br></p>
+                                <p style="color: rgb(255,255,255);"><br><strong></strong>&nbsp;<?php echo short($r1['post_desc'],350); ?><br><br></p>
                             </div>
                         </div>
                     </div>

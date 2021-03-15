@@ -16,4 +16,13 @@ $post->execute(array());
 $post_post = $post->fetchALL(PDO::FETCH_ASSOC);
 return $post_post;
 }
+
+function short($desc,$str){
+//Short Desc
+
+$desc = substr($desc, 0, $str);
+
+return $desc;
+}
+
  ?>
