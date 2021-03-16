@@ -1,8 +1,9 @@
 <?php
 include_once "include/config.php";
 include_once "include/functions/post_func.php";
-
+include_once "include/functions/cotegory_func.php";
 $postz = post();
+$cotegoryz = cotegoryz();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +56,7 @@ $postz = post();
                         <div class="input-group"><span class="input-group-text">SEARCH</span><input class="form-control" type="text"><button class="btn btn-primary" type="button">Find</button></div>
                     </div>
                     <h3 class="font-monospace text-center text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;margin: 6px;">* Cotegorys*</h3>
-                    <p class="font-monospace text-uppercase text-center text-primary" style="font-family: 'Antic Slab', serif;font-size: 37px;color: rgb(182,196,218);">- php</p>
+                  <?php foreach($cotegoryz as $r2){ ?>  <p class="font-monospace text-uppercase text-center text-primary" style="font-family: 'Antic Slab', serif;font-size: 37px;color: rgb(182,196,218);"><?php echo $r2['cotegory_name']?></p><?php }?>
                 </div>
             </div>
         </div>
