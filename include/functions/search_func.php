@@ -11,7 +11,7 @@
 function search(){
   require "include/config.php";
 
-  $post_search = $_POST['ara'];
+  $post_search = $_POST['search'];
   $postik = $db->prepare("SELECT * FROM zblog_posts where post_title LIKE :pattern;");
   $postik->execute(array('pattern' => "%".$post_search."%"));
   $x = $postik->fetchAll(PDO::FETCH_ASSOC);

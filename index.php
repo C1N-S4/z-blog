@@ -64,7 +64,7 @@ $cotegoryz = cotegoryz();
                     <aside></aside>
                     <h3 class="font-monospace text-center text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;">* Search *</h3>
                     <div class="bg-white p-3">
-                        <div class="input-group"><form action="search.php" method="POST "><span class="input-group-text">SEARCH</span><input class="form-control" name="searchtext" type="text"><input class="btn btn-primary" type="submit" value="Find"></form></div>
+                        <div class="input-group"><form action="search.php" method="POST"><span class="input-group-text">SEARCH</span><input class="form-control" name="search" type="text"><input class="btn btn-primary" type="submit" value="Find"></form></div>
                     </div>
                     <h3 class="font-monospace text-center text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;margin: 6px;">* Cotegorys*</h3>
                   <?php foreach($cotegoryz as $r2){ ?>  <p class="font-monospace text-uppercase text-center text-primary" style="font-family: 'Antic Slab', serif;font-size: 37px;color: rgb(182,196,218);"><?php echo $r2['cotegory_name']?></p><?php }?>
