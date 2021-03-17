@@ -1,3 +1,4 @@
+
 <?php
 /**
  *  Z-BLOG
@@ -11,9 +12,10 @@
 include_once "include/config.php";
 include_once "include/functions/post_func.php";
 include_once "include/functions/cotegory_func.php";
-
+include_once "include/functions/about_contact.php";
 $postz = post();
 $cotegoryz = cotegoryz();
+$ab = about();
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ $cotegoryz = cotegoryz();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>about</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Antic+Slab">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -48,30 +50,21 @@ $cotegoryz = cotegoryz();
         <div class="container">
             <div class="row">
                 <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
-                    <h3 class="font-monospace text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;">Least Posts</h3>
-                   <?php foreach($postz as $r1){ ?>
-                    <div class="bg-danger border rounded border-light shadow">
-                        <div class="card-long" style="background: rgb(41,40,40);"><img class="card-long-img">
-                            <div class="card-body"><a class="link-secondary" href="posts.php?id=<?php echo $r1['post_id']; ?>" style="font-family: 'Antic Slab', serif;"><?php echo $r1['post_title']; ?></a>
-                                <h5 class="text-end text-info"><?php echo $r1['post_data']; ?></h5>
-                                <p style="color: rgb(255,255,255);"><br><strong></strong>&nbsp;<?php echo short($r1['post_desc'],350); ?><br><br></p>
-                            </div>
-                        </div>
-                    </div>
-                    <?php }?>
+                    <div class="bg-danger border rounded border-light shadow"></div><img class="rounded-circle img-fluid">
+                    <p class="text-warning"><?php echo $ab['about_desc']; ?></p>
                 </div>
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
                     <aside></aside>
                     <h3 class="font-monospace text-center text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;">* Search *</h3>
                     <div class="bg-white p-3">
-                        <div class="input-group"><form action="search.php" method="POST"><span class="input-group-text">SEARCH</span><input class="form-control" name="search" type="text"><input class="btn btn-primary" type="submit" value="Find"></form></div>
+                                        <div class="input-group"><form action="search.php" method="POST"><span class="input-group-text">SEARCH</span><input class="form-control" name="search" type="text"><input class="btn btn-primary" type="submit" value="Find"></form></div>
                     </div>
                     <h3 class="font-monospace text-center text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;margin: 6px;">* Cotegorys*</h3>
-                  <?php foreach($cotegoryz as $r2){ ?>  <p class="font-monospace text-uppercase text-center text-primary" style="font-family: 'Antic Slab', serif;font-size: 37px;color: rgb(182,196,218);"><?php echo $r2['cotegory_name']?></p><?php }?>
+                    <?php foreach($cotegoryz as $r2){ ?>  <p class="font-monospace text-uppercase text-center text-primary" style="font-family: 'Antic Slab', serif;font-size: 37px;color: rgb(182,196,218);"><?php echo $r2['cotegory_name']?></p><?php }?>
                 </div>
             </div>
         </div>
-    </main>
+        </main>
     <footer>
         <!-- Start: Social Icons -->
         <div class="social-icons" style="background: rgb(41,40,40);margin-top: 151px;color: var(--bs-blue);"><a href="#"><i class="icon ion-social-twitter" style="color: var(--bs-blue);"></i></a><a href="#"><i class="icon ion-social-facebook" style="color: var(--bs-indigo);"></i></a><a href="#"><i class="icon ion-social-snapchat" style="color: var(--bs-white);"></i></a><a href="#"><i class="icon ion-social-youtube" style="color: var(--bs-red);"></i></a></div><!-- End: Social Icons -->

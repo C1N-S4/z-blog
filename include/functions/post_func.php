@@ -25,4 +25,24 @@ $desc = substr($desc, 0, $str);
 return $desc;
 }
 
+function post_view(){
+require "include/config.php";
+  $get=$_GET['id'];
+  $post_views = array();
+  $post_view= $db->query("SELECT * FROM zblog_posts where post_id = $get");
+  if($post_view->rowCount() > 0){
+  while($post_view1 = $post_view->fetch(PDO::FETCH_OBJ)){
+ $post_views[] = array(
+  'post_id' => $post_view1-> post_id,
+  'post_title' => $post_view1-> post_title,
+  'post_desc' => $post_view1-> post_desc,
+  'post_pic' => $post_view1-> post_pic,
+  'post_data' => $post_view1-> post_data,
+);
+  }
+  }
+  return $post_views;
+}
+
+
  ?>
