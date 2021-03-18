@@ -12,8 +12,27 @@ include_once "include/config.php";
 include_once "include/functions/post_func.php";
 include_once "include/functions/cotegory_func.php";
 
-$postz = post();
 $cotegoryz = cotegoryz();
+
+//Page Numbers ...
+$page = intval(@$_GET['id']);
+if(!$page){
+   $page = 1;
+}
+
+$page_views = $db->prepare("SELECT * FROM zblog_posts");
+$page_views->execute(array());
+$page_views->fetchAll(PDO::FETCH_ASSOC);
+$result = $page_views->rowCount();
+$h_page = 4;
+$view = $page*$h_page-$h_page;
+$h2_page= ceil($result/$h_page);
+$pagez_limit = 2;
+
+
+$post = $db->prepare("SELECT * FROM zblog_posts order by post_id desc limit $view,$h_page");
+$post->execute(array());
+$post_post = $post->fetchALL(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -35,8 +54,8 @@ $cotegoryz = cotegoryz();
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                 </ul>
             </div>
             <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">Projects</a>
@@ -49,7 +68,7 @@ $cotegoryz = cotegoryz();
             <div class="row">
                 <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12">
                     <h3 class="font-monospace text-success border rounded border-info shadow-lg" style="font-family: 'Antic Slab', serif;box-shadow: inset 0px 21px 8px 12px var(--bs-blue);opacity: 0.43;">Least Posts</h3>
-                   <?php foreach($postz as $r1){ ?>
+                   <?php foreach($post_post as $r1){ ?>
                     <div class="bg-danger border rounded border-light shadow">
                         <div class="card-long" style="background: rgb(41,40,40);"><img class="card-long-img">
                             <div class="card-body"><a class="link-secondary" href="posts.php?id=<?php echo $r1['post_id']; ?>" style="font-family: 'Antic Slab', serif;"><?php echo $r1['post_title']; ?></a>
@@ -72,6 +91,15 @@ $cotegoryz = cotegoryz();
             </div>
         </div>
     </main>
+    <?php
+
+           for($i = $page - $pagez_limit; $i<$page + $pagez_limit +1; $i++){
+           if($i>0 && $i<=$h2_page){
+             echo "<a href='?id=".$i."'>".$i."</a>";
+           }
+
+           }
+    ?>
     <footer>
         <!-- Start: Social Icons -->
         <div class="social-icons" style="background: rgb(41,40,40);margin-top: 151px;color: var(--bs-blue);"><a href="#"><i class="icon ion-social-twitter" style="color: var(--bs-blue);"></i></a><a href="#"><i class="icon ion-social-facebook" style="color: var(--bs-indigo);"></i></a><a href="#"><i class="icon ion-social-snapchat" style="color: var(--bs-white);"></i></a><a href="#"><i class="icon ion-social-youtube" style="color: var(--bs-red);"></i></a></div><!-- End: Social Icons -->
